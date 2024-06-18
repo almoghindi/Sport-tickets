@@ -1,7 +1,11 @@
 name: tests-auth
 
 on:
-  pull_request
+  pull_request:
+    paths:
+      - auth/**
+
+defaults:
 
 jobs:
   build:
