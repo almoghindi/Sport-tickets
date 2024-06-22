@@ -85,7 +85,7 @@ const StripeForm = ({
         setTimeout(() => {
           setSuccessMessage(null);
           onSuccess();
-          router.push("/tickets");
+          router.push("/orders");
         }, 1000);
       } catch (error) {
         console.error("Error saving payment:", error);

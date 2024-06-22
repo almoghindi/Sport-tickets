@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import Button from "../components/button";
@@ -63,7 +64,7 @@ const Ticket: React.FC<TicketProps> = ({
   };
 
   return (
-    <div className="ticket bg-white rounded-lg shadow-md overflow-hidden max-w-xs mx-auto text-center my-5">
+    <div className="ticket bg-white rounded-lg shadow-md overflow-hidden w-64 h-86 mx-auto text-center my-5">
       <div className="ticket-header bg-red-950 p-5 relative text-white">
         <Image
           src={image}
@@ -72,7 +73,9 @@ const Ticket: React.FC<TicketProps> = ({
           height={120}
           className="w-20 h-20 object-cover rounded-full mx-auto"
         />
-        <h2 className="ticket-title text-lg font-bold mt-2">{title}</h2>
+        <h2 className="ticket-title text-lg font-bold mt-2 truncate">
+          {title}
+        </h2>
         <HeartButton ticket={ticket} />
       </div>
       <div className="ticket-body p-5 bg-gray-100">
@@ -96,7 +99,7 @@ const Ticket: React.FC<TicketProps> = ({
             <div key={error.message}>{error.message}</div>
           ))}
         </div>
-      )}{" "}
+      )}
     </div>
   );
 };
