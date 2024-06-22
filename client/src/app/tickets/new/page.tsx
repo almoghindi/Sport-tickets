@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 import { SportsCategories } from "@/types/sport-categories";
 import { z } from "zod";
 import DropdownField from "@/app/components/dropdown-field";
-import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { useUser } from "@/hooks/use-user";
 
 const newTicketSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -33,7 +33,7 @@ const newTicketSchema = z.object({
 type NewTicketSchemaType = z.infer<typeof newTicketSchema>;
 
 const NewTicket: React.FC = () => {
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const currentUser = useUser();
 
   useEffect(() => {
     if (!currentUser) {

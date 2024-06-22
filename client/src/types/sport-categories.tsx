@@ -6,3 +6,5 @@ export enum SportsCategories {
   Tennis = "Tennis",
   Volleyball = "Volleyball",
 }
+
+export type SportFilterOptions = SportsCategories | "All";

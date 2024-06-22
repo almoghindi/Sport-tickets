@@ -1,13 +1,10 @@
 import React from "react";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
-// import { UserProvider } from "@/context/user-context";
+import Header from "./components/header/header";
 import { getCurrentUser } from "./api/get-current-user";
-import { Provider } from "react-redux";
-import store from "@/store/store";
 import { UserProvider } from "@/store/providers/user-provider";
-
+import { WishlistProvider } from "@/store/providers/wishlist-provider";
+import QueryProvider from "@/utils/query-provider";
 const AsyncLayout: React.FC<{
   children: React.ReactNode;
 }> = async ({ children }) => {
@@ -16,10 +13,14 @@ const AsyncLayout: React.FC<{
   return (
     <html lang="en">
       <body>
-        <UserProvider initialUser={currentUser.currentUser}>
-          <Header />
-          {children}
-        </UserProvider>
+        <QueryProvider>
+          <UserProvider initialUser={currentUser.currentUser}>
+            <WishlistProvider>
+              <Header />
+              {children}
+            </WishlistProvider>
+          </UserProvider>
+        </QueryProvider>
       </body>
     </html>
   );

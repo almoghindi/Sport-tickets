@@ -1,0 +1,56 @@
+import React from "react";
+import DateFilter from "./date";
+import PriceFilter from "./price";
+import SportFilter from "./sport";
+import TitleFilter from "./title";
+import { SportFilterOptions } from "@/types/sport-categories";
+
+interface FiltersProps {
+  filters: {
+    title: string;
+    minPrice: number;
+    maxPrice: number;
+    date: string;
+    sport: SportFilterOptions;
+  };
+  setFilters: React.Dispatch<
+    React.SetStateAction<{
+      title: string;
+      minPrice: number;
+      maxPrice: number;
+      date: string;
+      sport: SportFilterOptions;
+    }>
+  >;
+}
+
+const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
+  return (
+    <div className="flex flex-col md:flex-row flex-wrap justify-center gap-4 mb-8">
+      <TitleFilter
+        title={filters.title}
+        setTitle={(title) => setFilters((prev) => ({ ...prev, title }))}
+      />
+      <PriceFilter
+        minPrice={filters.minPrice}
+        maxPrice={filters.maxPrice}
+        setMinPrice={(minPrice) =>
+          setFilters((prev) => ({ ...prev, minPrice }))
+        }
+        setMaxPrice={(maxPrice) =>
+          setFilters((prev) => ({ ...prev, maxPrice }))
+        }
+      />
+      <DateFilter
+        date={filters.date}
+        setDate={(date) => setFilters((prev) => ({ ...prev, date }))}
+      />
+      <SportFilter
+        sport={filters.sport}
+        setSport={(sport) => setFilters((prev) => ({ ...prev, sport }))}
+      />
+    </div>
+  );
+};
+
+export default Filters;

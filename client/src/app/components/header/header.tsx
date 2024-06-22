@@ -1,17 +1,20 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { RootState } from "@/store/store";
-import { useSelector } from "react-redux";
+import { useUser } from "@/hooks/use-user";
+import { useWishlist } from "@/hooks/use-wishlist";
 import Image from "next/image";
-import logo from "../../../public/logo.webp";
+import logo from "../../../../public/logo.webp";
+import UserMenuDropdown from "./user-dropdown";
+import WishlistDropdown from "./wishlist-dropdown";
 
 const Header = () => {
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const { currentUser } = useUser();
+  const { wishlist, removeFromWishlist } = useWishlist();
 
   return (
     <nav className="fixed top-0 left-0 w-full flex justify-center bg-transparent z-50">
-      <div className="w-4/5 max-w-5xxl flex justify-between items-center ">
+      <div className="w-4/5 max-w-5xxl flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link href="/">
             <Image src={logo} alt="GitTix Logo" width={100} height={100} />
@@ -29,21 +32,11 @@ const Header = () => {
         <ul className="flex items-center space-x-4">
           {currentUser ? (
             <>
-              <Link
-                href="/tickets/new"
-                className="text-white font-bold hidden sm:block"
-              >
-                Sell Ticket
-              </Link>
-              <Link
-                href="/orders"
-                className="text-white font-bold hidden sm:block"
-              >
-                My Orders
-              </Link>
-              <Link href="/auth/signout" className="text-white font-bold">
-                Sign Out
-              </Link>
+              <WishlistDropdown
+                wishlist={wishlist}
+                handleRemove={removeFromWishlist}
+              />
+              <UserMenuDropdown />
             </>
           ) : (
             <>

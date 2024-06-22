@@ -4,8 +4,8 @@ import useRequest from "@/hooks/use-request";
 import { RootState } from "@/store/store";
 import { Order } from "@/types/order";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { useUser } from "@/hooks/use-user";
 
 const StripeForm = ({
   order,
@@ -16,7 +16,7 @@ const StripeForm = ({
 }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const currentUser = useUser();
   const { sendRequest, requestErrors } = useRequest();
   const router = useRouter();
   const [clientSecret, setClientSecret] = useState<string | null>(null);
@@ -26,7 +26,7 @@ const StripeForm = ({
     const createPaymentIntent = async () => {
       try {
         const data = await sendRequest({
-          url: `/api/payments`,
+          url: "/api/payments",
           method: "post",
           body: {
             orderId: order.id,
@@ -62,7 +62,7 @@ const StripeForm = ({
         payment_method: {
           card: cardElement!,
           billing_details: {
-            email: currentUser?.email,
+            email: currentUser["currentUser"]?.email,
           },
         },
       }
@@ -73,7 +73,7 @@ const StripeForm = ({
     } else if (paymentIntent?.status === "succeeded") {
       try {
         await sendRequest({
-          url: `/api/payments`,
+          url: "/api/payments",
           method: "post",
           body: {
             orderId: order.id,

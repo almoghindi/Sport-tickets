@@ -8,10 +8,8 @@ import TextField from "@/app/components/text-field";
 import Button from "@/app/components/button";
 import LoadingSpinner from "@/app/components/loading-spinner";
 import useRequest from "@/hooks/use-request";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "@/store/slices/user-slice";
-import { RootState } from "@/store/store";
 import Link from "next/link";
+import { useUser } from "@/hooks/use-user";
 
 const SignupSchema = z.object({
   email: z.string().min(1, "Email is required").email("Email is invalid"),
@@ -24,7 +22,7 @@ const SignupSchema = z.object({
 type SignupSchemaType = z.infer<typeof SignupSchema>;
 
 const SignupPage: React.FC = () => {
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const { currentUser, setCurrentUser } = useUser();
 
   useEffect(() => {
     if (currentUser) {
@@ -41,7 +39,6 @@ const SignupPage: React.FC = () => {
   });
   const { sendRequest, isLoading, requestErrors } = useRequest();
   const router = useRouter();
-  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<SignupSchemaType> = async (data) => {
     try {
@@ -50,7 +47,7 @@ const SignupPage: React.FC = () => {
         method: "POST",
         body: data,
         onSuccess: (userData) => {
-          dispatch(setCurrentUser(userData));
+          setCurrentUser(userData);
           router.push("/");
         },
       });

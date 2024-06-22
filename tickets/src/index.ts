@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { app } from "./app";
-import { natsWrapper } from "./nats-wrapper";
 import { kafkaWrapper } from "./kafka-wrapper";
 import { OrderCreatedConsumer } from "./events/consumers/order-created-consumer";
 import { OrderCancelledConsumer } from "./events/consumers/order-cancelled-consumer";
@@ -29,22 +28,9 @@ const start = async () => {
   }
 
   try {
-    // await natsWrapper.connect(
-    //   process.env.NATS_CLUSTER_ID,
-    //   process.env.NATS_CLIENT_ID,
-    //   process.env.NATS_URL
-    // );
     await kafkaWrapper.connect(process.env.KAFKA_CLIENT_ID, [
       process.env.KAFKA_BROKER,
     ]);
-
-    // natsWrapper.client.on("close", () => {
-    //   console.log("NATS connection closed!");
-    //   process.exit();
-    // });
-
-    // process.on("SIGINT", () => natsWrapper.client.close());
-    // process.on("SIGTERM", () => natsWrapper.client.close());
     await new OrderCreatedConsumer(kafkaWrapper.client).consume();
     await new OrderCancelledConsumer(kafkaWrapper.client).consume();
 
