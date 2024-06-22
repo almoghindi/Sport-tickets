@@ -27,9 +27,11 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **Event Streaming**: Apache Kafka
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes
+- **Cloud**: Google cloud
 - **Continuous Development**: Skaffold
 - **CI/CD**: GitHub Actions
 - **Deployment**: DigitalOcean
+
 
 ### Microservices Architecture
 
@@ -62,6 +64,11 @@ Implements event streaming to ensure real-time communication between services, f
 #### AI Recommendation Service
 
 Uses AI to analyze user behavior and recommend the best tickets for each user based on their past activity.
+
+#### Common Service
+
+Deployed as a GitHub module for code reuse
+
 
 #### Installation
 
