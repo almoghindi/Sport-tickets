@@ -1,6 +1,9 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.test" });
 
 declare global {
   var signin: () => string[];
@@ -11,8 +14,6 @@ jest.mock("../kafka-wrapper");
 let mongo: any;
 
 beforeAll(async () => {
-  process.env.JWT_KEY = "asdfasdf";
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const mongo = await MongoMemoryServer.create();
   const mongoUri = mongo.getUri();
   await mongoose.connect(mongoUri);

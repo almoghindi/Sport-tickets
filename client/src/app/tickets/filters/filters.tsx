@@ -3,6 +3,7 @@ import DateFilter from "./date";
 import PriceFilter from "./price";
 import SportFilter from "./sport";
 import TitleFilter from "./title";
+import RecommendationsFilter from "./recommendations";
 import { SportFilterOptions } from "@/types/sport-categories";
 
 interface FiltersProps {
@@ -22,11 +23,17 @@ interface FiltersProps {
       sport: SportFilterOptions;
     }>
   >;
+  onGetRecommendations: () => void;
 }
 
-const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
+const Filters: React.FC<FiltersProps> = ({
+  filters,
+  setFilters,
+  onGetRecommendations,
+}) => {
   return (
-    <div className="flex flex-col md:flex-row flex-wrap justify-center gap-4 mb-8">
+    <div className="flex flex-col gap-4 w-full">
+      <h2 className="text-white text-xl font-bold">Filters</h2>
       <TitleFilter
         title={filters.title}
         setTitle={(title) => setFilters((prev) => ({ ...prev, title }))}
@@ -49,6 +56,7 @@ const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
         sport={filters.sport}
         setSport={(sport) => setFilters((prev) => ({ ...prev, sport }))}
       />
+      <RecommendationsFilter onGetRecommendations={onGetRecommendations} />
     </div>
   );
 };

@@ -8,15 +8,15 @@ interface SportFilterProps {
 
 const SportFilter: React.FC<SportFilterProps> = ({ sport, setSport }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center mb-4 w-full md:w-auto">
-      <label htmlFor="category" className="text-white mb-2 md:mb-0 md:mr-2">
+    <div className="flex items-center mb-4 w-full">
+      <label htmlFor="category" className="text-white w-1/4">
         Sport:
       </label>
       <select
         id="category"
         value={sport}
         onChange={(e) => setSport(e.target.value as SportFilterOptions)}
-        className="p-2 rounded bg-gray-700 text-white w-full md:w-auto"
+        className="p-2 rounded bg-gray-700 border border-gray-500 text-white w-3/4"
       >
         <option value="All">All</option>
         {Object.values(SportsCategories).map((cat) => (

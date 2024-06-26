@@ -7,8 +7,8 @@ interface TitleFilterProps {
 
 const TitleFilter: React.FC<TitleFilterProps> = ({ title, setTitle }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center mb-4 w-full md:w-auto">
-      <label htmlFor="title" className="text-white mb-2 md:mb-0 md:mr-2">
+    <div className="flex items-center mb-4 w-full">
+      <label htmlFor="title" className="text-white w-1/4">
         Title:
       </label>
       <input
@@ -16,7 +16,7 @@ const TitleFilter: React.FC<TitleFilterProps> = ({ title, setTitle }) => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="p-2 rounded bg-gray-700 text-white w-full md:w-auto"
+        className="p-2 rounded bg-gray-700 border border-gray-500 text-white w-3/4"
       />
     </div>
   );

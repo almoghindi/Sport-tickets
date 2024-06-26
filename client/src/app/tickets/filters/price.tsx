@@ -14,9 +14,9 @@ const PriceFilter: React.FC<PriceFilterProps> = ({
   setMaxPrice,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center mb-4 w-full md:w-auto">
-      <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0 w-full md:w-auto">
-        <label htmlFor="minPrice" className="text-white mb-2 md:mb-0 md:mr-2">
+    <div className="flex flex-col w-full mb-4">
+      <div className="flex items-center mb-4 w-full">
+        <label htmlFor="minPrice" className="text-white w-1/4">
           Min Price:
         </label>
         <input
@@ -25,11 +25,11 @@ const PriceFilter: React.FC<PriceFilterProps> = ({
           value={minPrice}
           min={0}
           onChange={(e) => setMinPrice(Number(e.target.value))}
-          className="p-2 rounded bg-gray-700 text-white w-full md:w-auto"
+          className="p-2 rounded bg-gray-700 border border-gray-500 text-white w-3/4"
         />
       </div>
-      <div className="flex flex-col md:flex-row items-center w-full md:w-auto md:ml-4">
-        <label htmlFor="maxPrice" className="text-white mb-2 md:mb-0 md:mr-2">
+      <div className="flex items-center w-full mt-4">
+        <label htmlFor="maxPrice" className="text-white w-1/4">
           Max Price:
         </label>
         <input
@@ -38,7 +38,7 @@ const PriceFilter: React.FC<PriceFilterProps> = ({
           value={maxPrice === 0 ? "" : maxPrice}
           min={0}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="p-2 rounded bg-gray-700 text-white w-full md:w-auto"
+          className="p-2 rounded bg-gray-700 border border-gray-500 text-white w-3/4"
         />
       </div>
     </div>

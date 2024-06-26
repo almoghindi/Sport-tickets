@@ -12,6 +12,7 @@ interface TicketAttrs {
 }
 
 export interface TicketDoc extends mongoose.Document {
+  id: string;
   title: string;
   date: Date;
   sport: SportsCategories;

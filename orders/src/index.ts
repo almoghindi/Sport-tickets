@@ -19,7 +19,9 @@ const start = async () => {
   if (!process.env.KAFKA_CLIENT_ID) {
     throw new Error("KAFKA_CLIENT_ID must be defined");
   }
-
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY must be defined");
+  }
   try {
     await kafkaWrapper.connect(process.env.KAFKA_CLIENT_ID, [
       process.env.KAFKA_BROKER,
