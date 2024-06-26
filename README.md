@@ -28,7 +28,7 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **Testing**: Jest, Supertest
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes
-- **Cloud**: Google cloud
+- **Cloud**: Google Cloud
 - **Continuous Development**: Skaffold
 - **CI/CD**: GitHub Actions
 - **Deployment**: DigitalOcean
