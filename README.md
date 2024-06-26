@@ -120,7 +120,7 @@ Experience the welcoming home page where users are greeted with vibrant visuals 
 #### Tickets Page:
 Browse through an extensive list of available tickets with detailed filters to narrow down choices based on date, price range, and category.
 
-![Screenshot 2024-06-23 001420](https://github.com/almoghindi/Sport-tickets/assets/102804545/35f6bee8-14dd-4a16-8e21-2a1b23d4dc5a)
+![Screenshot 2024-06-26 162325](https://github.com/almoghindi/Sport-tickets/assets/102804545/25805887-0238-45a6-ac76-08be6d1c7c6b)
 
 
 #### Order Completed Page:
@@ -129,6 +129,10 @@ See the confirmation page that assures users their ticket purchases were success
 ![Screenshot 2024-06-23 001535](https://github.com/almoghindi/Sport-tickets/assets/102804545/64e756e6-c70c-4338-b228-33c0bc29240a)
 
 #### Demo Video:
+
+
+https://github.com/almoghindi/Sport-tickets/assets/102804545/a5e44a12-7c7a-49ad-afe7-d8637c698e84
+
 
 
 https://github.com/almoghindi/Sport-tickets/assets/102804545/d9190d2d-14b0-4e9c-8179-2082a9652466
