@@ -10,7 +10,7 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **Ticket Management**: Browse and manage sports event tickets.
 - **Order Processing**: Create and manage orders for tickets.
 - **Payment Handling**: Secure payment processing for ticket purchases.
-- **AI Recommendations**: Personalized ticket recommendations based on user activity.
+- **AI Recommendations**: AI-driven Personalized ticket recommendations based on user activity.
 - **Expiration Service**: Manages the expiration of unpaid orders.
 - **Event Streaming**: Real-time updates and communication between microservices with Apache Kafka.
 - **State Management**: Efficient state management using Redux.
@@ -25,6 +25,7 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **State Management**: Redux
 - **Caching**: Redis
 - **Event Streaming**: Apache Kafka
+- **Testing**: Jest, Supertest
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes
 - **Cloud**: Google cloud
