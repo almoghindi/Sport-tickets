@@ -19,61 +19,33 @@ const router = express.Router();
 router.post(
   "/api/payments",
   requireAuth,
-  [body("orderId").not().isEmpty()],
+  [body("orderId").not().isEmpty(), body("sessionId").not().isEmpty()],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { orderId, paymentIntentId } = req.body;
+    const { orderId, sessionId } = req.body;
     const order = await Order.findById(orderId);
-
     if (!order) {
       throw new NotFoundError();
     }
-
     if (order.userId !== req.currentUser!.id) {
       throw new NotAuthorizedError();
     }
-
     if (order.status === OrderStatus.Cancelled) {
-      throw new BadRequestError("Cannot pay for a cancelled order");
+      throw new BadRequestError("Order is cancelled");
     }
-
-    if (paymentIntentId) {
-      const paymentIntent = await stripe.paymentIntents.retrieve(
-        paymentIntentId
-      );
-
-      if (paymentIntent.status !== "succeeded") {
-        throw new BadRequestError("Payment not successful");
-      }
-
-      const payment = Payment.build({
-        orderId,
-        stripeId: paymentIntent.id,
-      });
-      await payment.save();
-
-      new PaymentCreatedProducer(kafkaWrapper.client).produce({
-        id: payment.id,
-        orderId: payment.orderId,
-        stripeId: payment.stripeId,
-      });
-
-      return res.status(201).send({ payment });
-    }
-
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: order.price * 100,
-      currency: "usd",
-      automatic_payment_methods: {
-        enabled: true,
-        allow_redirects: "never",
-      },
-      metadata: { orderId },
+    const payment = Payment.build({
+      orderId,
+      stripeId: sessionId,
     });
+    await payment.save();
 
-    res.status(201).send({
-      clientSecret: paymentIntent.client_secret,
+    const producer = new PaymentCreatedProducer(kafkaWrapper.client);
+    await producer.produce({
+      id: payment.id,
+      orderId: payment.orderId,
+      stripeId: payment.stripeId,
     });
+    res.status(200).send({ success: true });
   }
 );
 

@@ -1,7 +1,7 @@
 import { getOrder } from "./get-order";
 import TimerExpiration from "./timer-expiration";
-import StripeCheckoutModal from "./stripe-checkout-modal";
 import Ticket from "./ticket";
+import EmbeddedCheckoutButton from "./embedded-checkout-button";
 
 const Order = async ({ params }: { params: { orderId: string } }) => {
   const order = await getOrder(params.orderId);
@@ -27,7 +27,8 @@ const Order = async ({ params }: { params: { orderId: string } }) => {
               <TimerExpiration expirationTime={Math.round(msLeft / 1000)} />
             </div>
             <div className="mt-6">
-              <StripeCheckoutModal order={order} />
+              {/* <StripeCheckoutModal order={order} /> */}
+              <EmbeddedCheckoutButton order={order} isExpired={msLeft < 0} />
             </div>
           </>
         )}

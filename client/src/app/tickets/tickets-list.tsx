@@ -58,21 +58,19 @@ const TicketList: React.FC<TicketListProps> = ({ tickets }) => {
   };
 
   return (
-    <div className="flex justify-center w-4/5 mx-auto">
-      <div className="w-1/4 p-4">
+    <div className="flex flex-col lg:flex-row justify-center w-full lg:w-4/5 mx-auto p-4">
+      <div className="w-full lg:w-1/4 p-2 lg:p-4">
         <Filters
           filters={filters}
           setFilters={setFilters}
           onGetRecommendations={getRecommendations}
         />
       </div>
-      <div className="w-3/4 p-4">
+      <div className="w-full lg:w-3/4 p-2 lg:p-4">
         {requestErrors && (
-          <div>
+          <div className="text-red-500">
             {requestErrors.map((error, index) => (
-              <p key={index} className="text-red-500">
-                {error.message}
-              </p>
+              <p key={index}>{error.message}</p>
             ))}
           </div>
         )}
