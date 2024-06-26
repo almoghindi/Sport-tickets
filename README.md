@@ -10,7 +10,7 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **Ticket Management**: Browse and manage sports event tickets.
 - **Order Processing**: Create and manage orders for tickets.
 - **Payment Handling**: Secure payment processing for ticket purchases.
-- **AI Recommendations**: Personalized ticket recommendations based on user activity.
+- **AI Recommendations**: Personalized AI-driven ticket recommendations based on user activity.
 - **Expiration Service**: Manages the expiration of unpaid orders.
 - **Event Streaming**: Real-time updates and communication between microservices with Apache Kafka.
 - **State Management**: Efficient state management using Redux.
@@ -25,9 +25,10 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 - **State Management**: Redux
 - **Caching**: Redis
 - **Event Streaming**: Apache Kafka
+- **Testing**: Jest, Supertest
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes
-- **Cloud**: Google cloud
+- **Cloud**: Google Cloud
 - **Continuous Development**: Skaffold
 - **CI/CD**: GitHub Actions
 - **Deployment**: DigitalOcean
@@ -130,10 +131,4 @@ See the confirmation page that assures users their ticket purchases were success
 
 #### Demo Video:
 
-
-https://github.com/almoghindi/Sport-tickets/assets/102804545/a5e44a12-7c7a-49ad-afe7-d8637c698e84
-
-
-
-https://github.com/almoghindi/Sport-tickets/assets/102804545/d9190d2d-14b0-4e9c-8179-2082a9652466
-
+https://github.com/almoghindi/Sport-tickets/assets/102804545/47240b74-11e8-4871-9166-75b564801468
