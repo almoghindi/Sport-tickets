@@ -120,7 +120,7 @@ Experience the welcoming home page where users are greeted with vibrant visuals 
 #### Tickets Page:
 Browse through an extensive list of available tickets with detailed filters to narrow down choices based on date, price range, and category.
 
-![Screenshot 2024-06-23 001420](https://github.com/almoghindi/Sport-tickets/assets/102804545/35f6bee8-14dd-4a16-8e21-2a1b23d4dc5a)
+![Screenshot 2024-06-26 162325](https://github.com/almoghindi/Sport-tickets/assets/102804545/25805887-0238-45a6-ac76-08be6d1c7c6b)
 
 
 #### Order Completed Page:
