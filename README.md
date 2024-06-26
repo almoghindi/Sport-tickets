@@ -131,7 +131,4 @@ See the confirmation page that assures users their ticket purchases were success
 
 #### Demo Video:
 
-https://github.com/almoghindi/Sport-tickets/assets/102804545/0762ca34-6ff7-40bd-a26a-5f16758b8f51
-
-
-
+https://github.com/almoghindi/Sport-tickets/assets/102804545/47240b74-11e8-4871-9166-75b564801468
