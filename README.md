@@ -18,7 +18,7 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 
 ### Technologies Used
 
-- **Frontend**: Next.js, React, React Query TailwindCSS
+- **Frontend**: Next.js, React, React Query, TailwindCSS
 - **Backend**: Node.js, Express
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT), bcrypt
