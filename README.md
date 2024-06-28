@@ -66,7 +66,7 @@ Deployed as a GitHub module for code reuse
 ### Event-Driven Architecture
 The platform utilizes an event-driven architecture with Apache Kafka to enable real-time communication and updates between microservices. This ensures that all parts of the system stay in sync and respond to events as they occur, providing a seamless and responsive user experience.
 
-###S erver-Side Rendering
+### Server-Side Rendering
 Next.js is used for server-side rendering (SSR) to enhance performance and SEO. This ensures fast initial load times and better indexing by search engines.
 
 #### Installation
