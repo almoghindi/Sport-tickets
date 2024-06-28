@@ -36,45 +36,37 @@ Sport-tickets is a comprehensive platform designed for browsing, purchasing, and
 
 
 ### Microservices Architecture
-
 The application is divided into several microservices, each responsible for a specific domain of the application:
 
 #### Auth Service
-
 Handles user registration, login, and authentication using JWTs. It ensures secure access to other services.
 
 #### Tickets Service
-
 Manages the lifecycle of tickets, including creation, updates, and retrieval. It allows users to browse available sports event tickets.
 
 #### Orders Service
-
 Processes orders by associating tickets with users and managing the order states (created, cancelled, completed).
 
 #### Payments Service
-
 Integrates with payment gateways to handle transactions securely. Ensures payments are processed before completing an order.
 
 #### Expiration Service
-
 Ensures unpaid orders are cancelled after a certain period, freeing up tickets for other users.
 
 #### Kafka Service
-
 Implements event streaming to ensure real-time communication between services, facilitating a responsive and cohesive system.
 
 #### AI Recommendation Service
-
 Uses AI to analyze user behavior and recommend the best tickets for each user based on their past activity.
 
 #### Common Service
-
 Deployed as a GitHub module for code reuse
 
-###Event-Driven Architecture
+
+### Event-Driven Architecture
 The platform utilizes an event-driven architecture with Apache Kafka to enable real-time communication and updates between microservices. This ensures that all parts of the system stay in sync and respond to events as they occur, providing a seamless and responsive user experience.
 
-###Server-Side Rendering
+###S erver-Side Rendering
 Next.js is used for server-side rendering (SSR) to enhance performance and SEO. This ensures fast initial load times and better indexing by search engines.
 
 #### Installation
