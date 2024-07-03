@@ -69,6 +69,7 @@ The platform utilizes an event-driven architecture with Apache Kafka to enable r
 ### Server-Side Rendering
 Next.js is used for server-side rendering (SSR) to enhance performance and SEO. This ensures fast initial load times and better indexing by search engines.
 
+
 #### Installation
 
 ### 1. Clone the Repository:
